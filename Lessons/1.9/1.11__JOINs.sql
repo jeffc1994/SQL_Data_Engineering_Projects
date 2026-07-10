@@ -14,3 +14,5 @@ HAVING posting_count>3000
 ORDER BY posting_count DESC
 LIMIT 10;
 
+--TEST--
+
