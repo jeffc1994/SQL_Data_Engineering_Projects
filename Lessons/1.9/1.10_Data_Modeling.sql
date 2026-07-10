@@ -1,0 +1,6 @@
+SELECT *
+FROM information_schema.tables
+WHERE table_catalog = 'data_jobs';
+
+
+SELECT * from information_schema.tables;
