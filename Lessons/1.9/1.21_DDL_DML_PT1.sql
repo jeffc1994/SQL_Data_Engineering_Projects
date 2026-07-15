@@ -5,7 +5,7 @@ DML is Data Manipulation Language such as inserting, updating, deleting data
 DCL is Data Control Language which manages permissions and security
 TCL is Transaction Control Language, which control transactions of data between two rows of data
 
-We must also write SQL that is idempotent- i.e. running the script multiple times has the same effect
+We should also write SQL that is idempotent- i.e. running the script multiple times has the same effect
 */
 
 -- .read Lessons/1.9/1.21_DDL_DML_PT1.sql
@@ -79,7 +79,18 @@ WHERE role_id = 3;
 
 SELECT * FROM staging.priority_roles;
 
+INSERT INTO staging.priority_roles (role_id, role_name, priority_level)
+VALUES 
+    (4,'Data Analyst',2),
+    (5,'IT Director',3),
+    (6,'Senior Data Analyst',2);
+
 SELECT table_name, column_name, data_type FROM information_schema.columns
 WHERE table_catalog ='jobs_mart';
 
-select * from staging.priority_roles;
+UPDATE staging.priority_roles
+SET priority_level = 4 
+WHERE role_name = 'IT Director';
+
+SELECT *
+FROM staging.priority_roles;
